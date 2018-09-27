@@ -32,11 +32,14 @@ const detalhesPedido = () => {
 	for (let i = 0; i < 2; i++) {
 		list.push({
 			id: chance.hash(),
-			ordem: chance.integer({ min: 1, max: 20 }),
+			ordem: i + 1,
+			preMarcadoCelular: chance.bool(),
 			placa: chance.word({ length: 3 }).toUpperCase() + ' - ' + chance.integer({ min: 1000, max: 9999 }),
+			prioridade: chance.bool(),
+			nomeMotorista: chance.sentence({ words: 3 }),
 			regiaoRegistro: chance.city(),
 			obrigatorioViagem: obrigatoriosViagem(),
-			horaPrevista: chance.timestamp()
+			horaPrevista: '2018-09-' + chance.integer({ min: 27, max: 30 }) + 'T' + chance.hour({twentyfour: true}) + ':' + chance.minute() + ':' + chance.second()
 		})
 	}
 
