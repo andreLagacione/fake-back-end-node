@@ -18,6 +18,7 @@ router.use('/unidades-negocio', require('./unidadeNegocio').router);
 router.use('/pontos-carregamento', require('./pontosCarregamento'));
 router.use('/itinerarios', require('./itinerarios'));
 router.use('/order-queue', require('./lista-pedidos'));
+router.use('/latest-drivers-called', require('./ultimos-motoristas-chamados'));
 
 module.exports = router;
 

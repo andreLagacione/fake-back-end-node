@@ -171,3 +171,12 @@ exports.treinamentosListGenerator = () => {
 
 	return list;
 };
+
+exports.obrigatoriosViagem = () => {
+	return {
+		compressor: chance.bool(),
+		descargaFumaca: chance.bool(),
+		chapa: chance.bool(),
+		munck: chance.bool()
+	}
+}
