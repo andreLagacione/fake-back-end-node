@@ -1,7 +1,8 @@
 const router = require('express').Router()
 	, Chance = require('chance')
 	, chance = new Chance()
-	, { defaultListResponse, obrigatoriosViagem } = require('../../util');
+	, { defaultListResponse, obrigatoriosViagem } = require('../../util')
+	, statusPedido = ['Sem carga', 'Calculando', 'Cancelado', 'Vinculado no SAP'];
 
 let totalItens = 0;
 
@@ -11,7 +12,8 @@ const getItinerariosList = () => {
 		list.push({
 			id: chance.hash(),
 			nomeProduto: chance.word({ length: 7 }),
-			pedidos: detalhesPedido()
+			pedidos: detalhesPedido(),
+			tempoTrocarTela: 30000
 		});
 	}
 
@@ -30,7 +32,8 @@ const detalhesPedido = () => {
 			nomeMotorista: chance.sentence({ words: 3 }),
 			regiaoRegistro: chance.city(),
 			obrigatorioViagem: obrigatoriosViagem(),
-			horaPrevista: '2018-09-' + chance.integer({ min: 27, max: 30 }) + 'T' + chance.hour({twentyfour: true}) + ':' + chance.minute() + ':' + chance.second()
+			horaPrevista: '2018-09-' + chance.integer({ min: 28, max: 30 }) + 'T' + chance.hour({twentyfour: true}) + ':' + chance.minute() + ':' + chance.second(),
+			statusPedido: statusPedido[chance.integer({ min: 0, max: 3 })]
 		})
 	}
 

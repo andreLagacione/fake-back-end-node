@@ -14,7 +14,8 @@ const getItinerariosList = () => {
 			nomeMotorista: chance.sentence({ words: 3 }),
 			regiaoRegistro: chance.city(),
 			obrigatorioViagem: obrigatoriosViagem(),
-			chamado: '00:' + chance.minute()
+			chamado: '00:' + chance.minute(),
+			tempoTrocarTela: 30000
 		});
 	}
 
