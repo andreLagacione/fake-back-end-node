@@ -11,7 +11,7 @@ const getItinerariosList = () => {
 		list.push({
 			id: chance.hash(),
 			placa: chance.word({ length: 3 }).toUpperCase() + ' - ' + chance.integer({ min: 1000, max: 9999 }),
-			nomeMotorista: chance.word({ length: 7 }),
+			nomeMotorista: chance.sentence({ words: 3 }),
 			regiaoRegistro: chance.city(),
 			obrigatorioViagem: obrigatoriosViagem(),
 			chamado: '00:' + chance.minute()
