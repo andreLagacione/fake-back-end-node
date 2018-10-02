@@ -19,6 +19,8 @@ router.use('/pontos-carregamento', require('./pontosCarregamento'));
 router.use('/itinerarios', require('./itinerarios'));
 router.use('/order-queue', require('./lista-pedidos'));
 router.use('/latest-drivers-called', require('./ultimos-motoristas-chamados'));
+router.use('/driver-priority', require('./prioridade-motorista'));
+router.use('/client-priority', require('./prioridade-cliente'));
 
 module.exports = router;
 
