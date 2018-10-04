@@ -22,6 +22,8 @@ router.use('/latest-drivers-called', require('./ultimos-motoristas-chamados'));
 router.use('/driver-priority', require('./prioridade-motorista'));
 router.use('/client-priority', require('./prioridade-cliente'));
 router.use('/product-priority', require('./prioridade-produto'));
+router.use('/productivity-priority', require('./prioridade-produtividade'));
+router.use('/drp-configuration', require('./drp-configuracao'));
 
 module.exports = router;
 
