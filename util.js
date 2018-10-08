@@ -1,4 +1,5 @@
 const Chance = require('chance')
+	, vehicle = require('./v1.0/vehicles')
 	, chance = new Chance();
 
 exports.defaultListResponse = (data, numberOfRecords) => (data);
@@ -178,5 +179,50 @@ exports.obrigatoriosViagem = () => {
 		descargaFumaca: chance.bool(),
 		chapa: chance.bool(),
 		munck: chance.bool()
+	}
+}
+
+exports.cidade = () => {
+	return {
+		id: chance.hash(),
+		nome: chance.city(),
+		uf: chance.word({ length: 2 }).toUpperCase()
+	}
+}
+
+exports.transportadora = () => {
+	return {
+		id: chance.hash(),
+		codigo: chance.integer({ min: 1, max: 999999 }),
+		cnpj: chance.integer({ min: 10000000000000, max: 99999999999999 }).toString(),
+		cpf: chance.cpf().match(/\d+/g).join(''),
+		nome: chance.name(),
+		dataValidadeCNH: new Date(),
+		numCel: chance.phone({ country: 'uk', mobile: true }).replace(' ', ''),
+		motoristas: [
+			{
+				cpf: chance.cpf().match(/\d+/g).join(''),
+				nome: chance.name(),
+				numCel: chance.phone({ country: 'uk', mobile: true }).replace(' ', ''),
+			},
+			{
+				cpf: chance.cpf().match(/\d+/g).join(''),
+				nome: chance.name(),
+				numCel: chance.phone({ country: 'uk', mobile: true }).replace(' ', ''),
+			},
+			{
+				cpf: chance.cpf().match(/\d+/g).join (''),
+				nome: chance.name(),
+				numCel: chance.phone({ country: 'uk', mobile: true }).replace(' ', ''),
+			}
+		],
+		veiculos: vehicle.getRandomVehicleList(6)
+	}
+};
+
+exports.produto = () => {
+	return {
+		codigo: '' + chance.integer({ min: 10000, max: 99999 }),
+		descricao: chance.sentence({ words: 3 })
 	}
 }

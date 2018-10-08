@@ -24,6 +24,8 @@ router.use('/client-priority', require('./prioridade-cliente'));
 router.use('/product-priority', require('./prioridade-produto'));
 router.use('/productivity-priority', require('./prioridade-produtividade'));
 router.use('/drp-configuration', require('./drp-configuracao'));
+router.use('/cities', require('./cidade'));
+router.use('/meta', require('./metas'));
 
 module.exports = router;
 

@@ -1,14 +1,14 @@
 const router = require('express').Router()
 	, Chance = require('chance')
 	, chance = new Chance()
-	, { defaultListResponse } = require('../../util');
+	, { defaultListResponse, cidade } = require('../../util');
 
 const getItinerariosList = () => {
 	const list = [];
 	for (let index = 0; index < 10; index++) {
 		list.push({
 			id: chance.hash(),
-			rota: chance.city()
+			rota: cidade()
 		});
 	}
 
